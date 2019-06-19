@@ -9,17 +9,28 @@ def index(request):
     })
 
 
-def result(request):
-    test = request.GET.get('q')
-    print(test)
-    return render(request, 'pages/result.html', {
-        'test': test
-    })
+# def result(request):
+#     test = request.GET.get('q')
+#     print(test)
+#     return render(request, 'pages/result.html', {
+#         'test': test
+#     })
 
 
-def load_df(request):
-    news = News.objects.values('date').annotate(total=Count('date')).order_by('date_tmp')
-    return render(request, 'pages/charjs.html', {
-        'news': news,
+def dashboard(request):
+    query = request.GET.get('q')
+    pie = News.objects.values('cat_selected').annotate(total=Count('cat_selected')).filter(query=query)
+    ts = News.objects.values('date').annotate(total=Count('date')).order_by('date_tmp').filter(query=query)
+    return render(request, 'pages/dashboard.html', {
+        'query': query,
+        'ts': ts,
+        'pie': pie,
     })
+
+#
+# def load_df(request):
+#     news = News.objects.values('date').annotate(total=Count('date')).order_by('date_tmp')
+#     return render(request, 'pages/charjs.html', {
+#         'news': news,
+#     })
 

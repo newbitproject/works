@@ -1,5 +1,114 @@
-{% extends 'pages/base.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+html, body {
+  background: #F5BA45;
+}
 
-{% block body %}
+.search {
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  top: -300px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+}
+.search svg {
+  width: 300px;
+  -webkit-transform: translate3d(-125px, 0, 0);
+          transform: translate3d(-125px, 0, 0);
+  transition: 0.5s;
+  pointer-events: none;
+}
+.search input {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  padding: 10px 55px 10px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.search input::-moz-selection {
+  background: rgba(0, 0, 0, 0.3);
+}
+.search input::selection {
+  background: rgba(0, 0, 0, 0.3);
+}
+.search input:valid, .search input:focus {
+  cursor: auto;
+}
+.search input:valid + svg, .search input:focus + svg {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.search input:focus {
+  cursor: auto;
+  outline: none;
+}
+.search input:focus + svg .path {
+  stroke-dasharray: 961, 363;
+  stroke-dashoffset: -363;
+}
+.search .path {
+  stroke-dasharray: 363, 961;
+  stroke-dashoffset: 0;
+  stroke: #fff;
+  stroke-width: 10;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: 0.5s;
 
-{% endblock %}
+.test{
+  display:flex;
+  justify-content: space-around;
+  align-items : center;
+}
+
+
+    </style>
+</head>
+<body>
+<div class="search">
+<form action="{% url 'pages:dashboard' %}" method="GET" style="visiblity:hidden">
+  <input type="search" autocomplete="off" name="q" id="q" required/>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 1000 150">
+    <path class="path" fill="none" d="M924.4 85.2c-19.5 19.5-50.8 19.7-70.3 0-19.3-19.4-19.3-51 .3-70.6 19.5-19.5 51-19.4 70.6 0 19.3 19.7 19.3 50.8-.5 70.6l35.4 35.3H0"/>
+  </svg>
+</form>
+</div>
+
+<div class="d-flex align-items-center justify-content-center" style="height:900px;x">
+    <img class="mx-5 px-5" src="/static/img/infographic.png" height="50px" alt="" style="opacity:0.7">
+    <img class="mx-5 px-5" src="/static/img/timeline (1).png" height="60px" alt="" style="opacity:0.7">
+    <img class="mx-5 px-5" src="/static/img/graph.png" height="50px" alt=""style="opacity:0.7">
+</div>
+<div class="d-flex align-items-center justify-content-center" style="position: relative; top:-400px; right:-10px">
+    <a class="mx-4 px-5">Categorization</a>
+    <a class="mx-5 px-5">timeline</a>
+    <a class="mx-5 px-5">visualization</a>
+</div>
+<div class="d-flex align-items-center justify-content-center" style="position: relative; top:-380px; right:0px">
+    <a class="mx-4 px-4" style="text-align: center">카테고리 별 대표기사<br>추출하여 중복 기사 제거</a>
+    <a class="mx-4 px-4" style="text-align: center">대표 기사 빈도를<br>시간순으로 출력하여<br>중요 기사 선별 기능 제공</a>
+    <a class="mx-4 px-4" style="text-align: center">한 번의 클릭으로<br>기업 관련 뉴스 트렌드를<br>시각화하여 제공</a>
+</div>
+</body>
+</html>

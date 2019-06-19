@@ -1,0 +1,89 @@
+{% extends 'pages/base.html' %}
+{% block body %}
+    <div class="row">
+        <div class="col-6 mt-3">
+            <div title="1stchart">
+                <div class="container">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+                    <script>
+                        var ctx = document.getElementById('myChart');
+                        var myPieChart = new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                                labels: [
+                                    {% for j in pie %}
+                                        "{{ j.cat_selected }}",
+                                    {% endfor %}
+                                ],
+                                datasets: [{
+                                    label: '미래에셋대우 기사 빈도 시계열 그래프',
+                                    data: [
+                                        {% for j in pie %}
+                                            {{ j.total }},
+                                        {% endfor %}
+                                    ],
+                                    borderWidth: 10,
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: false,
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 mt-3">
+            <div title="2ndchart">
+                <div class="container">
+                    <div>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+                <script>
+                    var ctx2 = document.getElementById('myChart2');
+                    var myChart2 = new Chart(ctx2, {
+                        type: 'line',
+                        data: {
+                            labels: [
+                                {% for i in ts %}
+                                    "{{ i.date }}",
+                                {% endfor %}
+                            ],
+                            datasets: [{
+                                label: '{{ query }} 기사 빈도 시계열 그래프',
+                                data: [
+                                    {% for j in ts %}
+                                        {{ j.total }},
+                                    {% endfor %}
+                                ],
+                                borderWidth: 1,
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: false,
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+{% endblock %}
