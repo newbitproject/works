@@ -19,14 +19,18 @@
         type: 'line',
         data: {
             labels: [
-                {% for date in news %}
-                    {{ date.date }},
+                {% for i in news %}
+                    "{{ i.date }}",
                 {% endfor %}
             ],
             datasets: [{
                 label: '판매 변동 추이',
-                data: [787, 700, 632, 230, 998, 558],
-                borderWidth: 10,
+                data: [
+                    {% for j in news %}
+                        {{ j.total }},
+                    {% endfor %}
+                ],
+                borderWidth: 0.1,
             }]
         },
         options: {
@@ -41,9 +45,4 @@
     });
 </script>
 </body>
-
-<!--{% for title in news %}-->
-<!--    {{ title.title }}-->
-<!--<br>-->
-<!--{% endfor %}-->
 </html>

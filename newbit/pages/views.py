@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . import newbit
 from .models import News
+from django.db.models import Count
 
 # Create your views here.
 def index(request):
@@ -17,8 +18,8 @@ def result(request):
 
 
 def load_df(request):
-    news = News.objects.all()
-
+    news = News.objects.values('date').annotate(total=Count('date')).order_by('date_tmp')
     return render(request, 'pages/charjs.html', {
-        'news': news
+        'news': news,
     })
+
