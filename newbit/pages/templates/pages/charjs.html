@@ -18,7 +18,11 @@
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+            labels: [
+                {% for date in news %}
+                    {{ date.date }},
+                {% endfor %}
+            ],
             datasets: [{
                 label: '판매 변동 추이',
                 data: [787, 700, 632, 230, 998, 558],
@@ -37,4 +41,9 @@
     });
 </script>
 </body>
+
+<!--{% for title in news %}-->
+<!--    {{ title.title }}-->
+<!--<br>-->
+<!--{% endfor %}-->
 </html>
