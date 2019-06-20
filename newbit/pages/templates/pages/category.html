@@ -1,0 +1,107 @@
+{% extends 'pages/base.html' %}
+
+{% block body %}
+    <div class="d-flex justify-content-center">
+        <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">경제</a></li>
+    <li class="breadcrumb-item"><a href="#">IT 과학</a></li>
+    <li class="breadcrumb-item"><a href="#">지역</a></li>
+    <li class="breadcrumb-item active" aria-current="page">사회</li>
+  </ol>
+</nav>
+    </div>
+{
+    <div class="row">
+        <div class="col-5 mt-3">
+            <div title="3rdchart">
+                <div class="container">
+                    <div>
+                        <canvas id="myChart3"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+                    <script>
+                        var ctx = document.getElementById('myChart3');
+                        var myBarChart = new Chart(ctx, {
+                            type: 'horizontalBar',
+                            data: {
+                                labels: ['한국일보', '전자신문', '중앙일보', '경향신문', '한겨레', '매일경제', '조선일보'],
+                                datasets: [{
+                                    label: '미래에셋대우 기사 빈도 시계열 그래프',
+                                    data: [43, 18, 15, 14, 12, 8, 5],
+                                    borderColor:[
+                                    'rgba(54,162,235,0.2)',
+                                    'rgba(130,162,235,0.2)',
+                                    'rgba(20,162,3,0.2)',
+                                    'rgba(1,50,235,0.2)',
+                                    'rgba(270,162,235,0.2)',
+                                    'rgba(54,300,14,0.2)',
+                                    'rgba(54,15,235,0.2)',
+
+                                    ],
+                                    borderWidth: 10,
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: false,
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 mt-3">
+            <div title="2ndchart">
+                <div class="container">
+                    <div>
+                        <canvas id="myChart4"></canvas>
+                    </div>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+                <script>
+                    var ctx = document.getElementById('myChart4');
+                    var myChart4 = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                            datasets: [{
+                                label: '',
+                                data: [787, 700, 632, 230, 998, 558, 453, 544,123,432,32,70],
+                                borderColor:[
+                                'rgba(4,456,54,0.2)'
+                                ],
+                                borderWidth: 10,
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: false,
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+<p>
+    <a href="" class="d-flex justify-content-center mt-3"><h5>Topic별 대표기사</h5>
+            <div>
+                <p>topic1</p>
+                <p>topic2</p>
+                <p>topic3</p>
+            </div>
+    </a>
+</p>
+{% endblock %}

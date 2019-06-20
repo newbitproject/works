@@ -9,21 +9,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    .navbar{
+        height:110px;
+    }
+</style>
 <body>
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-<!--    로고 끼워넣기-->
-<!--  <a class="navbar-brand" href="#">-->
-<!--    <img src="https://picsum.photos/id/237/200/300" width="30" height="30" alt="">-->
-<!--  </a>-->
-  <a class="navbar-brand" href="#">New<br></br>bit</a>
+
+<nav id="navbar" class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+<div>
+    <img class="mx-5 px-5 d-flex justify-content-start" src="/static/img/logo_black.png" height="80px" alt="" style="-webkit-filter: invert(100%)">
+</div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Category</a>
-      <a class="nav-item nav-link" href="#">Topic</a>
+      <a class="nav-item nav-link active" href="{% url 'pages:dashboard' %}">Home<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="{% url 'pages:category' %}">Category</a>
+      <a class="nav-item nav-link" href="{% url 'pages:topic' %}">Topic</a>
     </div>
   </div>
 </nav>

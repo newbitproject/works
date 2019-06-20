@@ -34,3 +34,15 @@ def dashboard(request):
 #         'news': news,
 #     })
 
+def category(request):
+    test = request.GET.get('q')
+    context = {'test':test}
+    print(test)
+    return render(request, 'pages/category.html', context)
+
+
+def topic(request):
+    test = request.GET.get('q')
+    context = {'test': test}
+    print(test)
+    return render(request, 'pages/topic.html', context)
