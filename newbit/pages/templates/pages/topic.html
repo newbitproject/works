@@ -1,5 +1,9 @@
 {% extends 'pages/base.html' %}
-
+{% block query %}
+ <form action="{% url 'pages:topic' %}" method="GET" style="visiblity:hidden">
+    <input type="search" style="text-align: center" autocomplete="off" name="q" id="q" placeholder="{{query}}" required/>
+</form>
+{% endblock %}
 {% block body %}
     <div class="d-flex justify-content-center">
         <nav aria-label="breadcrumb">

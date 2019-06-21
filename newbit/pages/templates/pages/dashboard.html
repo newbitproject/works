@@ -21,7 +21,7 @@
                                     {% endfor %}
                                 ],
                                 datasets: [{
-                                    label: '미래에셋대우 기사 빈도 시계열 그래프',
+                                    label: '{{ query }} 기사 카테고리 파이 그래프',
                                     data: [
                                         {% for j in pie %}
                                             {{ j.total }},
@@ -32,7 +32,7 @@
                                     'rgba(255,99,132,0.2)',
                                     'rgba(152,102,255,0.2)',
                                     'rgba(255,159,64,0.2)'],
-                                    borderWidth: 10,
+                                    borderWidth: 3,
                                 }]
                             },
                             options: {

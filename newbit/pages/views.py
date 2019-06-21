@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from . import newbit
 from .models import News
 from django.db.models import Count
@@ -27,6 +27,7 @@ def dashboard(request):
         'pie': pie,
     })
 
+
 #
 # def load_df(request):
 #     news = News.objects.values('date').annotate(total=Count('date')).order_by('date_tmp')
@@ -35,14 +36,14 @@ def dashboard(request):
 #     })
 
 def category(request):
-    test = request.GET.get('q')
-    context = {'test':test}
-    print(test)
+    query = request.GET.get('q')
+    context = {'query':query}
+
     return render(request, 'pages/category.html', context)
 
 
 def topic(request):
-    test = request.GET.get('q')
-    context = {'test': test}
-    print(test)
+    query = request.GET.get('q')
+    context = {'query': query}
+
     return render(request, 'pages/topic.html', context)

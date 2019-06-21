@@ -7,17 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Kaushan+Script|Dosis|Noto+Sans+KR|Libre+Baskerville|Old+Standard+TT&display=swap">
     <title>Document</title>
     <style>
+
+
+
 html, body {
   background: #F5BA45;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .search {
   position: absolute;
   width: 300px;
   height: 50px;
-  top: -300px;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -68,20 +74,14 @@ html, body {
   stroke-dashoffset: -363;
 }
 .search .path {
-  stroke-dasharray: 363, 961;
-  stroke-dashoffset: 0;
-  stroke: #fff;
-  stroke-width: 10;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  transition: 0.5s;
-
-.test{
-  display:flex;
-  justify-content: space-around;
-  align-items : center;
+    stroke-dasharray: 363, 961;
+    stroke-dashoffset: 0;
+    stroke: #fff;
+    stroke-width: 10;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    transition: 0.5s;
 }
-
 
 
 
@@ -91,9 +91,18 @@ html, body {
 <div style="position: relative; top:15px; left:45px">
     <a href="/"><img class="" src="/static/img/logo_black.png" height="80px" alt="logo" style=""></a>
 </div>
+<div class="d-flex align-items-center justify-content-center" style="position: relative; top:150px;">
+    <a class="mx-4 px-5" style="font-family: 'Libre Baskerville', serif;  font-size:35px; font-weight: bold ;text-align: center; word-spacing: 10px ;letter-spacing:3px">Build your new insight with us</a>
+</div>
+<div class="d-flex align-items-center justify-content-center" style="position: relative; top:200px;">
+
+    <a class="mx-4 px-5" style="font-family: 'Old Standard TT', serif; text-align: center;  font-size:20px;">All you want is here <br>
+Exploring a web new trend, and being a leader</a>
+
+</div>
 <div class="search">
-<form action="{% url 'pages:dashboard' %}" method="GET" style="visiblity:hidden">
-  <input type="search" autocomplete="off" name="q" id="q" required/>
+<form action="{% url 'pages:dashboard' %}" method="GET" style="visiblity:hidden: ">
+  <input type="search" style="text-align: center" autocomplete="off" name="q" id="q" required/>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 1000 150">
     <path class="path" fill="none" d="M924.4 85.2c-19.5 19.5-50.8 19.7-70.3 0-19.3-19.4-19.3-51 .3-70.6 19.5-19.5 51-19.4 70.6 0 19.3 19.7 19.3 50.8-.5 70.6l35.4 35.3H0"/>
   </svg>
@@ -106,9 +115,9 @@ html, body {
     <img class="mx-5 px-5" src="/static/img/graph.png" height="50px" alt=""style="opacity:0.7">
 </div>
 <div class="d-flex align-items-center justify-content-center" style="position: relative; top:-400px; right:-10px">
-    <a class="mx-4 px-5">Categorization</a>
-    <a class="mx-5 px-5">timeline</a>
-    <a class="mx-5 px-5">visualization</a>
+    <a class="mx-4 px-5" style="font-family: 'Dosis', sans-serif; font-weight: bold; font-size:20px">Categorization</a>
+    <a class="mx-4 px-5" style="font-family: 'Dosis', sans-serif; font-weight: bold; font-size:20px">Timeline</a>
+    <a class="mx-5 px-5" style="font-family: 'Dosis', sans-serif; font-weight: bold; font-size:20px">Visualization</a>
 </div>
 <div class="d-flex align-items-center justify-content-center" style="position: relative; top:-380px; right:0px">
     <a class="mx-4 px-4" style="text-align: center">카테고리 별 대표기사<br>추출하여 중복 기사 제거</a>

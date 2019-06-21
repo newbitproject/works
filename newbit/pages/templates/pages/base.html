@@ -5,11 +5,16 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Kaushan+Script|Dosis|Noto+Sans+KR|Libre+Baskerville|Old+Standard+TT&display=swap">
 </head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <style>
+    html,body{
+        font-family: 'Noto Sans KR', sans-serif;
+    }
     .navbar{
         height:110px;
     }
@@ -25,9 +30,12 @@
   </button>
   <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active mx-4" href="{% url 'pages:dashboard' %}">Home<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link mx-4" href="{% url 'pages:category' %}">Category</a>
-      <a class="nav-item nav-link mx-4" href="{% url 'pages:topic' %}">Topic</a>
+<!--      <a class="nav-item nav-link active mx-4" href="{% url 'pages:dashboard' %}">Home<span class="sr-only">(current)</span></a>-->
+      <a class="nav-item nav-link {%if request.resolver_match.url_name == 'index'%}active{%endif%} mx-4" onclick="window.location='{% url 'pages:index' %}';">Home<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link {%if request.resolver_match.url_name == 'dashboard'%}active{%endif%} mx-4" onclick="window.location='{% url 'pages:dashboard' %}'+window.location.search;">Chart<span class="sr-only">(current)</span></a>
+
+      <a class="nav-item nav-link {%if request.resolver_match.url_name == 'category'%}active{%endif%} mx-4" onclick="window.location='{% url 'pages:category' %}'+window.location.search;">Category</a>
+      <a class="nav-item nav-link {%if request.resolver_match.url_name == 'topic'%}active{%endif%} mx-4" onclick="window.location='{% url 'pages:topic' %}'+window.location.search;"">Topic</a>
     </div>
   </div>
 </nav>
@@ -39,7 +47,8 @@
                 검색어
             </div>
             <div class="card-body">
-                <h5>{{test}}</h5>
+               {% block query %}
+                {% endblock %}
             </div>
         </div>
     </div>
